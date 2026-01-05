@@ -41,6 +41,16 @@ The project evaluates feature-based approaches to distinguish between human-writ
     └── cumulative_ablation/
 ```
 
+## Requirements
+Install the file ```requirments.txt```using the command: 
+```bash
+pip install -r requirments.txt
+```
+
+After installing the packages, download the spaCy model using:
+```bash
+python -m spacy download en_core_web_lg
+```
 
 ## Usage
 
