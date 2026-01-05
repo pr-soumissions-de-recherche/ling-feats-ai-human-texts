@@ -41,18 +41,6 @@ The project evaluates feature-based approaches to distinguish between human-writ
     └── cumulative_ablation/
 ```
 
-## Requirements
-
-```
-python>=3.8
-numpy
-pandas
-scikit-learn
-scikit-learn-intelex
-polars
-elfen
-joblib
-```
 
 ## Usage
 
