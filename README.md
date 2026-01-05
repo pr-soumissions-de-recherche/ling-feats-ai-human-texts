@@ -201,7 +201,7 @@ Results are saved in the `results/` directory with the following structure:
 
 ## Acknowledgments
 
-Code organization and documentation assisted by Claude (Anthropic).
+Code organization and documentation assisted by Claude- Sonnet 4.5 (Anthropic).
 
 ## License
 
