@@ -1,0 +1,15 @@
+# Core dependencies
+scikit-learn==1.7.0
+scikit-learn-intelex==2025.9.0
+pandas==2.3.0
+numpy==2.2.6
+matplotlib==3.10.3
+seaborn==0.13.2
+elfen==1.1.9
+spacy==3.8.7
+en_core_web_lg==3.8.0
+polars==1.30.0
+joblib==1.5.1
+stanza==1.10.1
+
+## Note: After installing these packages, you will need to download the spaCy model using command "python -m spacy download en_core_web_lg"
