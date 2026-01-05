@@ -31,7 +31,7 @@ The project evaluates feature-based approaches to distinguish between human-writ
 ├── data/                     # Data directory
 │   ├── mage/                 # MAGE dataset with features
 │   ├── cmv/                  # CMV dataset with features
-│   ├── features/             # Extracted features
+│   ├── raw/                  # Raw text data
 │   └── feature_consistency_report.json
 ├── results/                  # Experimental results
 │   ├── ablation/
@@ -114,12 +114,14 @@ python main_classifier.py --testbed 4 --feature-group combined --data-path ../da
 
 Available testbeds:
 - **1**: Fixed-domain & Model-specific
+- **11**: Fixed-domain & Model-family-specific
 - **2**: Arbitrary-domains & Model-specific
 - **3**: Fixed-domain & Arbitrary-models
 - **4**: Arbitrary-domains & Arbitrary-models
 - **5**: Unseen Models
 - **6**: Unseen Domains
-- **7**: Unseen-domains & Unseen-model
+- **7**: Unseen-domains (all new domains) & Unseen-model
+- **7.1**: Unseen-domain (each new domain) & Unseen-model
 - **8**: Unseen Domain-Model Pair
 
 ### 4. Run Ablation Studies
@@ -158,8 +160,8 @@ All scripts support command-line arguments. Edit the bash scripts or pass argume
 
 ### Common Arguments
 
-- `--data-path`: Path to MAGE dataset (default: `../data/mage`)
-- `--cmv-path`: Path to CMV dataset (default: `../data/cmv`)
+- `--data-path`: Path to MAGE dataset (default: `../data/mage`) # After feature extraction
+- `--cmv-path`: Path to CMV dataset (default: `../data/cmv`) # After feature extraction
 - `--output-dir`: Output directory for results (default: `../results`)
 - `--log-dir`: Directory for log files (default: `../logs`)
 - `--feature-group`: Feature group to use (default: `combined`)
@@ -169,17 +171,17 @@ All scripts support command-line arguments. Edit the bash scripts or pass argume
 
 The 11 feature categories are:
 
-1. **Surface**: Basic text statistics (e.g., token count)
-2. **Lexical Richness**: Vocabulary diversity metrics (e.g., TTR)
-3. **Emotion**: Emotion intensity and sentiment features
-4. **Psycholinguistic**: Age of acquisition, concreteness, etc.
-5. **Readability**: Flesch reading ease and similar metrics
-6. **Dependency**: Syntactic dependency features
-7. **Entities**: Named entity recognition features
-8. **Morphological**: Morphological tag distributions
-9. **Semantic**: Semantic features (e.g., hedges)
-10. **Information**: Information-theoretic features
-11. **POS**: Part-of-speech tag distributions
+1. **Surface**
+2. **Lexical Richness**
+3. **Emotion**
+4. **Psycholinguistic**
+5. **Readability**
+6. **Dependency**
+7. **Entities**
+8. **Morphological**
+9. **Semantic**
+10. **Information**
+11. **POS**
 
 ## Results
 
@@ -195,8 +197,11 @@ Results are saved in the `results/` directory with the following structure:
 
 - All experiments use SVM with linear kernel and balanced class weighting
 - Random seed is set to 42 for reproducibility
-- Feature preprocessing includes adaptive imputation strategies
 - Train/validation/test splits maintain class stratification
+
+## Acknowledgments
+
+Code organization and documentation assisted by Claude (Anthropic).
 
 ## License
 
